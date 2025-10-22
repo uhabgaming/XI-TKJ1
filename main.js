@@ -555,8 +555,9 @@ highlights.forEach((highlight) => {
     card.style.cursor = 'pointer';
     card.addEventListener('click', (e) => {
       // Don't trigger if clicking social links
-      if (e.target.closest('.social-links')) return;
-      
+      if (e.target.closest('.social-links a')) {
+        return;
+      }
       // Get data from the card
       const img = card.querySelector('.anggota-img');
       const name = card.querySelector('h5');
@@ -576,9 +577,35 @@ highlights.forEach((highlight) => {
       profileSpotify.href = spotify?.href || '#';
       profileSpotify.style.display = spotify ? 'flex' : 'none';
 
+      // Tambahkan event handler agar link di popup benar-benar redirect
+      if (profileInstagram) {
+        profileInstagram.setAttribute('target', '_blank');
+        profileInstagram.addEventListener('click', function(e) {
+          if (profileInstagram.href && profileInstagram.href !== '#') {
+            window.open(profileInstagram.href, '_blank');
+          }
+        });
+      }
+      if (profileSpotify) {
+        profileSpotify.setAttribute('target', '_blank');
+        profileSpotify.addEventListener('click', function(e) {
+          if (profileSpotify.href && profileSpotify.href !== '#') {
+            window.open(profileSpotify.href, '_blank');
+          }
+        });
+      }
+
       // Show popup
       document.body.style.overflow = 'hidden';
       popup.classList.add('active');
+    });
+  });
+
+  // Pastikan klik pada link di .social-links tidak bubble ke card
+  document.querySelectorAll('.anggota-card .social-links a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.stopPropagation();
+      // Biarkan browser melakukan redirect normal
     });
   });
 
