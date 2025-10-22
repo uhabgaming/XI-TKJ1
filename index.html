@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XI TKJ 1</title>
+    <link rel="icon" type="icon" href="./image/LOGO NEW 2.png">
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#home">
+          <div class="brand-container d-flex align-items-center gap-3">
+            <div class="brand-icon">
+              <i class="bi bi-mortarboard"></i>
+            </div>
+            <p class="brand-text">XI <span>TKJ 1</span></p>
+          </div>
+        </a>
+
+        <!-- Toggle Button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">
+                <span class="nav-icon"><i class="bi bi-house-door"></i></span>
+                Beranda
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#struktur">
+                <span class="nav-icon"><i class="bi bi-people-fill"></i></span>
+                Struktur
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#anggota">
+                <span class="nav-icon"><i class="bi bi-person"></i></span>
+                Anggota
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">
+                <span class="nav-icon"><i class="bi bi-grid"></i></span>
+                Galeri
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#info-kelas">
+                <span class="nav-icon"><i class="bi bi-info-circle"></i></span>
+                Info Kelas
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">
+                <span class="nav-icon"><i class="bi bi-envelope"></i></span>
+                Kontak
+              </a>
+            </li>
+            <li class="nav-item ms-2">
+              <button class="theme-toggle nav-link" id="themeToggle" aria-label="Toggle theme">
+                <span class="nav-icon">
+                  <i class="bi bi-sun-fill" id="lightIcon"></i>
+                  <i class="bi bi-moon-fill" id="darkIcon" style="display: none;"></i>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Quick Search & Navigation -->
+        <div class="quick-nav" id="quickNav">
+          <button class="quick-nav-toggle" id="quickNavToggle">
+            <i class="bi bi-search"></i>
+          </button>
+          <div class="quick-nav-content">
+            <input type="text" id="quickSearch" placeholder="Cari anggota atau menu..." class="quick-search-input">
+            <div class="quick-nav-results" id="quickNavResults"></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- hero section -->
+    <section class="hero" id="home">
+      <div class="hero-wrapper">
+        <div class="hero-content justify-content-between">
+          <div class="hero-left">
+            <div class="headline">
+              <div class="headline-title">
+                <h1
+                  class="fs-1 headline-desktop"
+                  style="font-family: Raleway; font-weight: 700"
+                >
+                  WELCOME TO
+                  <span style="color: var(--primary-color)"
+                    >XI TKJ 1 CLASS!</span
+                  >
+                </h1>
+                <h1
+                  class="headline-mobile"
+                  style="font-family: Raleway; font-weight: 700"
+                >
+                  WELCOME TO <br />
+                  <span style="color: rgb(158, 225, 252)">XI TKJ 1 CLASS!</span>
+                </h1>
+                <p
+                  style="font-family: Outfit; font-size: 14px; max-width: 350px"
+                >
+                  Kelas XI TKJ 1 — rumahnya para calon ahli teknologi! 💻 Di
+                  sini, semangat belajar dan tawa berjalan berdampingan. Kompak,
+                  kreatif, dan selalu siap menghadapi tantangan dunia digital.
+                  Dari rakit PC sampai ngoding, semua dilakukan dengan penuh
+                  semangat dan kebersamaan! 🔥
+                </p>
+              </div>
+              <div class="headline-cta">
+                <a
+                  href="#struktur"
+                  class="btn btn-primary"
+                  style="font-family: Outfit"
+                  >Jelajahi selanjutnya
+                  <span style="font-family: Inter">--></span></a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="hero-right w-50">
+            <div class="hero-image">
+              <div
+                class="image-overlay-text p-3 d-flex flex-column justify-content-center gap-2 shadow-md"
+              >
+                <h1 style="font-family: Raleway">Kelas XI TKJ 1</h1>
+                <p style="font-family: Outfit">
+                  "Awas TKJ 1 Jago troubleshoot hati yang error."
+                </p>
+              </div>
+              <div class="hero-main-image">
+                <img src="./image/RAMDOM6.webp" alt="hero-image" class="slide active" />
+                <img src="./image/RANDOM5.webp" alt="hero-image" class="slide" />
+                <img src="./image/RANDOM1.webp" alt="hero-image" class="slide" />
+                <img src="./image/kiri bawah.webp" alt="hero-image" class="slide" />
+                <img src="./image/kanan bawah 1.webp" alt="hero-image" class="slide" />
+              </div>
+              <div class="hero-image-overlay-1">
+                <img src="./image/RANDOM5.webp" alt="" />
+              </div>
+              <div class="hero-image-overlay-2">
+                <img src="./image/RANDOM1.webp" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Struktur Kelas -->
+    <section class="struktur-kelas-baru" id="struktur">
+      <h2 class="judul-besar">Struktur Kelas XI TKJ 1</h2>
+
+      <div class="struktur-wrapper">
+        <!-- Wali Kelas -->
+        <div class="struktur-item wali">
+          <img src="./image/waliKelas.jpg" alt="Wali Kelas" />
+          <h5>M. Miftah Nurhadi S.Pd</h5>
+          <p>Wali Kelas</p>
+          <h6>Wali Kelas Terkece.</h6>
+        </div>
+
+        <!-- Ketua Kelas -->
+        <div class="struktur-item ketua">
+          <img src="./image/ARSYAD.webp" alt="Ketua Kelas" />
+          <h5>Arsyad Raffi Abdullah</h5>
+          <p>Ketua Kelas</p>
+          <h6>Ketua Kelas Tergacor.</h6>
+        </div>
+
+        <!-- Baris 3: Bendahara - Wakil - Sekretaris -->
+        <div class="struktur-baris-utama">
+          <div class="struktur-item">
+            <img src="./image/SINTA.webp" alt="Bendahara 1" />
+            <h5>SINTA OKTA SETIA W.</h5>
+            <p>Bendahara 1</p>
+            <h6>Bendahara Yapping.</h6>
+          </div>
+
+          <div class="struktur-item tengah">
+            <img src="./image/RISMA AI MED.webp" alt="Wakil Ketua" />
+            <h5>Risma skibidi mewing</h5>
+            <p>Wakil Ketua</p>
+            <h6>Wakil Introvert.</h6>
+          </div>
+
+          <div class="struktur-item">
+            <img src="./image/RISKASYA.webp" alt="Sekretaris 1" />
+            <h5>RISKASYA HANFENDIAS</h5>
+            <p>Sekretaris 1</p>
+            <h6>Sekretaris Mageran.</h6>
+          </div>
+        </div>
+
+        <!-- Baris 4: Bendahara 2 - Sekretaris 2 -->
+        <div class="struktur-baris-bawah">
+          <div class="struktur-item bawah-kiri">
+            <img src="./image/APRIL.webp" alt="Bendahara 2" />
+            <h5>APRILIA NADILA TYA S.</h5>
+            <p>Bendahara 2</p>
+            <h6>Bendahara paling galak.</h6>
+          </div>
+
+          <div class="struktur-item bawah-kanan">
+            <img src="./image/LORD NOPAL.webp" alt="Sekretaris 2" />
+            <h5>Nova Lino H.P.</h5>
+            <p>Sekretaris 2</p>
+            <h6>Sekertaris paling rajin.</h6>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANGGOTA KELAS -->
+    <section class="anggota py-5" id="anggota">
+      <div class="container">
+        <h2 class="text-center mb-5">Anggota Kelas XI TKJ 1</h2>
+
+        <div class="anggota-scroll" id="anggotaScroll">
+          <!-- Cards anggota 1..37 -->
+          <div class="anggota-card text-center">
+            <img src="./image/MANDA.webp" alt="Amanda" class="anggota-img" />
+            <h5>AMANDA EMYLIANA</h5>
+            <p class="role">just living my best and embrace the journey.</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/mmnndaa_/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/1i15sKa0fSqejhxy29qsGT?si=740bcbe169fc42a1&nd=1&dlsi=9946f2c74f354f67"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="anggota-card text-center">
+            <img src="./image/NAYA.webp" alt="Rizky" class="anggota-img" />
+            <h5>Anaya Putri F.</h5>
+            <p class="role">i’ll just focus on myself now on.</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/ferizcanayoa/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/5JESuE80fvausWHjcT9QVh?si=b0080f07e31d4b84"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="anggota-card text-center">
+            <img src="./image/ANGGAAR.webp" alt="Dinda" class="anggota-img" />
+            <h5>ANGGAR DARIS S.</h5>
+            <p class="role">
+              you must try things that may not work, you must let anyone define
+              your limits because of where you come from. Your only limits is
+              your soul" -Chef Gusto, Ratatouille 2007.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/Anggrshe_illmya/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/3iYeXCdD3d0zlex2v0CpVt?si=cff678f52ed24d26"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="anggota-card text-center">
+            <img
+              src="./image/ANGGI ASTARI.webp"
+              alt="Aulia"
+              class="anggota-img"
+            />
+            <h5>ANGGI ASTARI AMANDA P.</h5>
+            <p class="role">Don't let fear make you hesitate to take a step.</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/astaxyz09/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/3MEYFivt6bilQ9q9mFWZ4g?si=ee641058ee8a48f0"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="anggota-card text-center">
+            <img src="./image/ANGGRAY.webp" alt="Naufal" class="anggota-img" />
+            <h5>ANGGRAY PRATIWI</h5>
+            <p class="role">
+              growth takes time, it's not like fast food — be patient.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-spotify"></i></a>
+            </div>
+          </div>
+
+          <div class="anggota-card text-center">
+            <img src="./image/APRIL.webp" alt="Rara" class="anggota-img" />
+            <h5>APRILIA NADILA TYA S.</h5>
+            <p class="role">
+              setelah banyaknya rasa tidak terima yang aku paksa terima, semoga
+              dibalas dengan rasa bahagia yang paling banyak banyak porsinya.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/aprlllndlty_/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/09eWF5r8kasfOEp8RFRQLv?si=2f8865399d5a4480"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="anggota-card text-center">
+            <img src="./image/ARSYAD.webp" alt="Putra" class="anggota-img" />
+            <h5>ARSYAD RAFFI A.</h5>
+            <p class="role">"Akan selalu ada ruang untuknya dihatiku"</p>
+            <div class="social-links">
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-spotify"></i></a>
+            </div>
+          </div>
+
+          <div class="anggota-card text-center">
+            <img src="./image/BAYU.webp" alt="Dewi" class="anggota-img" />
+            <h5>BAYU PRASETYO</h5>
+            <p class="role">
+              Semua orang punya jalannya sendiri-sendiri, jadi jangan bandingkan
+              langkahmu dengan orang lain.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/yubek_2/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/2jbV5gysqUJNW9LebSRRfT?si=8f9237fcfa814423"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="anggota-card text-center">
+            <img src="./image/VELY.webp" alt="Zidan" class="anggota-img" />
+            <h5>CASTANA EVELYLA E.</h5>
+            <p class="role">
+              who am i to judge another, when I myself walk as an imperfect"
+              Luke 6:36.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/cstneve/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/61MhXxcy6MUhrDeHCDE7AP?si=41ac193adc6942ff"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="anggota-card text-center">
+            <img src="./image/CITRAA.webp" alt="Arif" class="anggota-img" />
+            <h5>CITRA PUSPA DEWI</h5>
+            <p class="role">when there is a will there is well</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/ractrraaa/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/04mAOoQNsXmDJlyupJwmkO?si=fd600d2f1a9a470e"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- 11..20 -->
+          <div class="anggota-card text-center">
+            <img src="./image/DAPI.webp" alt="Budi" class="anggota-img" />
+            <h5>DHAVI WAHYU S.R</h5>
+            <p class="role">aku nak beli alok 99 daimen 🤑🤑.</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/ezhsz_/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/2uP6t2J5MEwhr9rDkAAzwh?si=ee6d22918a914431"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/AYUU NEHHH.webp" alt="Siti" class="anggota-img" />
+            <h5>DIAH AYU NURNILAM S.</h5>
+            <p class="role">
+              success isn't about how high you stand, but how well you bounce
+              back after falling.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/2mdEsXPu8ZmkHRRtAdC09e?si=c50b24f7ecdf43ce"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/ANGEL.webp" alt="Fajar" class="anggota-img" />
+            <h5>ENJELINA NOFITA DEWI</h5>
+            <p class="role">
+              setiap langkah kecil yang kamu ambil saat ini akan membawamu lebih
+              dekat dengan tujuan.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-spotify"></i></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/LORD PERDI.webp" alt="Lina" class="anggota-img" />
+            <h5>FERDI SETIAWAN</h5>
+            <p class="role">
+              Keberhasilan dimulai dari percaya pada diri sendiri.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/ferdisetiawanrafi6/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/1zFaLYA10ImwEejge3F5nm?si=2add430e067241ef"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/FIRDA.webp" alt="Andi" class="anggota-img" />
+            <h5>FIRDA FEBRIANI</h5>
+            <p class="role">
+              I wanna be successful, but my pillow and bed just won’t let me go.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/frdafbrini/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/2plbrEY59IikOBgBGLjaoe?si=25efc3714cc1414e"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- 21..30 -->
+          <div class="anggota-card text-center">
+            <img
+              src="./image/GENTA SHEESH.webp"
+              alt="Indra"
+              class="anggota-img"
+            />
+            <h5>GENTHA ANDIKA PRATAMA</h5>
+            <p class="role">kopi adalah obat fokus terbaik.</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/kopiko__1/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/5O2P9iiztwhomNh8xkR9lJ?si=69cab5ad65384a35"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/GUS IQBAL.webp" alt="Maya" class="anggota-img" />
+            <h5>IQBAL IBNU KHOIR</h5>
+            <p class="role">PK (OUT) STY (IN)</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/ball.ibnuu/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/0yXKYYBPxOuakAOshy1cah?si=dac0d94e3fb943c4"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/KIK.webp" alt="Rini" class="anggota-img" />
+            <h5>KEIKO PRAMITA MAARIF</h5>
+            <p class="role">la felicidad es una eleccion</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/justjeac/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/41cpvQ2GyGb2BRdIRSsTqK?si=beeb1869f9c84546"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/KENZYE.webp" alt="Agus" class="anggota-img" />
+            <h5>KENZYE JUNIO VALERICO</h5>
+            <p class="role">
+              No need yapping aja, kita butuh tindakan nyata juga
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/kenzyejv/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/7yCF65vpc7sUwPjftI0iFb?si=46d45417985c447e"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/KEYSA.webp" alt="Tika" class="anggota-img" />
+            <h5>KEYSA HAFIZH</h5>
+            <p class="role">
+              Learning from failure is better than remaining silent.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/sykhzzf/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/47DicNF52ohAFTV1DfMB9A?si=ac4c3708d2404fd7"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- 31..37 -->
+          <div class="anggota-card text-center">
+            <img src="./image/KEYZA.webp" alt="Hendra" class="anggota-img" />
+            <h5>KEYZA JUANG RAMADHAN</h5>
+            <p class="role">wong ireng ojo ngasi ilang irenge.</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/kzett/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/1KGiwUnVS9qrfOgR9dnUMl?si=074761097fd64196"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/MEGA.webp" alt="Rian" class="anggota-img" />
+            <h5>MEGA ALLIYA FANANI</h5>
+            <p class="role">
+              Life is about learning, growing, and becoming the best version of
+              yourself.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/mee.ey3/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/1fzAuUVbzlhZ1lJAx9PtY6?si=7fca59fb9ba34615"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/RIDHO.webp" alt="Novi" class="anggota-img" />
+            <h5>M. RIDHO FAJAR S.W.J</h5>
+            <p class="role">Gedang Goreng Secangkir Kopi Enak</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/caveine._/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/1fDFHXcykq4iw8Gg7s5hG9?si=b4c1804b92f6428e"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/Ketek.webp" alt="Dedi" class="anggota-img" />
+            <h5>MOHAMAD DION PRASETYO</h5>
+            <p class="role"></p>
+            <div class="social-links">
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-spotify"></i></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/GUS UHAB.webp" alt="Siska" class="anggota-img" />
+            <h5>MUHAMMAD RIJAL U.</h5>
+            <p class="role">
+              Bersyukurlah maka nikmatmu akan ditambah berkali-kali lipat.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/_ell.nmm/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/3PHO44F2dXgjoNtcLkUzIg?si=ef429718d8904eb9"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/NAYLA.webp" alt="Yudi" class="anggota-img" />
+            <h5>NAILA NURAINI</h5>
+            <p class="role">pengen sugeh tapi ra kerjo.</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/x.naaaaiii/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/5hx7w26Zi3zafMgvMTUqF6?si=798ff807a9ce45d5"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/Ketek.webp" alt="Vina" class="anggota-img" />
+            <h5>NIRWANA RIZKY ABY P.</h5>
+            <p class="role">kalau tidak ada 1, maka tidak ada 1000.</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/itsunirr/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/artist/1Foqp2ngVCEaD2xKanB7QP?si=iRV49N8RRY6rojHc1LKu5w"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/LORD NOPAL.webp" alt="Raka" class="anggota-img" />
+            <h5>NOVA LINO HARDIAN P.</h5>
+            <p class="role">
+              beef with who? jealous with who? i just be chillin man.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/npalpratama_/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/4vzWdPFSFtIgCgCiTY7o3B?si=8bb723c0a14b46b2"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/RISKASYA.webp" alt="Ilham" class="anggota-img" />
+            <h5>RISKASYA HANFENDIAS</h5>
+            <p class="role">
+              mimpimu tinggi , tapi sujudmu kurang rendah, permintaan mu beribu
+              -ribu,tapi sujudmu berburu- buru.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/xyz_irrr3/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/1jOASJ1rcIzVvX4QB1z7ze?si=e6154cf963ba44c1"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/SABIL.webp" alt="Sari" class="anggota-img" />
+            <h5>SALSABIL AFIFAH F.</h5>
+            <p class="role">
+              :no matter how badly others treat you, never become a bad woman
+              just to get revenge.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/slsabilafy__/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/1MdjZzEInrmDBXf8zs0nKS?si=9db86d600161401e"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/AYU.webp" alt="Wawan" class="anggota-img" />
+            <h5>SEPTI AYU WULANDARI</h5>
+            <p class="role">no need to be perfect, just be yourself.</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/ayu.wlndriii_/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/21qg0IBZf8R12qHd9A3AA4?si=ad62af165d9b484b"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/SILLA OKTA.webp" alt="Mira" class="anggota-img" />
+            <h5>SILA OCTAVIA NURDINSYAH</h5>
+            <p class="role">
+              Kesulitan ada untuk membuatmu lebih kuat, bukan untuk
+              menjatuhkanmu.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/sila_octavia_n/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/7flKzMJj46Ttsb62sM93zy?si=77580806d80f4294"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/SILLA AYU.webp" alt="Eko" class="anggota-img" />
+            <h5>SILLA AYU PUTRISTA N. Z</h5>
+            <p class="role">
+              stop giving ur energy to people who make you feel like shit.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/larayiell/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/1ShRHPAiiIrh0arZbSFmx1?si=1a4e4fa5952f4a1a"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/SINTA.webp" alt="Lila" class="anggota-img" />
+            <h5>SINTA OKTA SETIA W.</h5>
+            <p class="role">jangan menilai orang dari katanya tapi nyatanya.</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/snxyktaaa_/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/1vkwlZncsYqFukl2Q7M6Fe?si=8250a44d59c845a1"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img src="./image/ASIYAH.webp" alt="Danu" class="anggota-img" />
+            <h5>SITI NUR AISYAH</h5>
+            <p class="role">
+              kegagalan merupakan langkah awal menuju kesuksesan untuk masa
+              depan.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/sn.aisyahhhhh/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/1jOASJ1rcIzVvX4QB1z7ze?si=e6154cf963ba44c1"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+          <div class="anggota-card text-center">
+            <img
+              src="./image/RISMA AI MED.webp"
+              alt="Rena"
+              class="anggota-img"
+            />
+            <h5>Risma skibidi mewing</h5>
+            <p class="role">pain is never permanent</p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/kimmie_cozy/"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="https://open.spotify.com/intl-id/track/3awTnPYtwJsTCqlgSMwSji?si=76679b19a8d34bab"
+                ><i class="bi bi-spotify"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeri kelas -->
+    <section id="gallery" class="gallery">
+      <div class="gallery_title">
+        <h1>Our<span> Gallery</span></h1>
+        <p id="56">Foto Random Kelas</p>
+      </div>
+      <div class="detail_gallery">
+        <div class="img_gallery">
+          <div class="gallery_kiri">
+            <div class="kiri_atas">
+              <img src="./image/kiri bawah.webp" alt="galeri" />
+            </div>
+            <div class="kiri_bawah">
+              <img src="./image/kiri atas.webp" alt="galeri" />
+            </div>
+          </div>
+          <div class="gallery_kanan">
+            <div class="kanan_atas">
+              <img src="./image/kanan atas.webp" alt="galeri" />
+            </div>
+            <div class="kanan_bawah">
+              <div class="kanan_bawah1">
+                <img src="./image/kanan bawah 1.webp" alt="galeri" />
+                <img src="./image/kanan bawah 2 lagi.webp" alt="galeri" />
+              </div>
+              <div class="kanan_bawah2">
+                <img src="./image/kanan bawah 3.webp" alt="galeri" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup_gallery" id="popupGallery">
+        <span id="popupClose">&times;</span>
+        <img src="" alt="popup" id="popupImg" />
+      </div>
+    </section>
+
+    <!-- Info Kelas: jadwal pelajaran & piket -->
+    <section
+      id="info-kelas"
+      class="pt-5 pb-5"
+      data-aos="fade-up"
+      data-aos-duration="900"
+    >
+      <div class="container">
+        <h2 class="text-center mb-4">Info Kelas XI TKJ 1</h2>
+
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Jadwal Pelajaran</h5>
+                <div class="table-responsive">
+                  <table class="table table-striped table-bordered mb-0">
+                    <thead class="table-primary">
+                      <tr>
+                        <th>Hari</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Senin</td>
+                        <td>Upacara</td>
+                        <td>PAI</td>
+                        <td>AIJ</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>Selasa</td>
+                        <td>BK</td>
+                        <td>Bahasa Jawa</td>
+                        <td>PJOK</td>
+                        <td>Sejarah</td>
+                        <td>Bahasa Inggris</td>
+                      </tr>
+                      <tr>
+                        <td>Rabu</td>
+                        <td>ASJ</td>
+                        <td>PKK</td>
+                        <td>Matematika</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>Kamis</td>
+                        <td>MPP</td>
+                        <td>TLJ</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                      <tr>
+                        <td>Jumat</td>
+                        <td>Bahasa Indonesia</td>
+                        <td>PP</td>
+                        <td>KWU</td>
+                        <td>-</td>
+                        <td>-</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Daftar Piket</h5>
+                <ul class="list-group list-group-flush">
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    Senin
+                    <span class="badge bg-primary rounded-pill"
+                      >Aggar, Sila, Anggi, Kenzye, Bayu, Nirwana, Arsyad</span
+                    >
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    Selasa
+                    <span class="badge bg-primary rounded-pill"
+                      >Naya, Anggray, Keyko, Iqbal, Noval, Uhab, Enjelina,
+                      Dewi</span
+                    >
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    Rabu
+                    <span class="badge bg-primary rounded-pill"
+                      >Riska, Shinta, Nayla, April, Ferdi, Dion, Davi,
+                      Juang</span
+                    >
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    Kamis
+                    <span class="badge bg-primary rounded-pill"
+                      >Risma, Ayu, Sabil, Veli, Firda, Citra, Mega, Diah</span
+                    >
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    Jumat
+                    <span class="badge bg-primary rounded-pill"
+                      >Aisyah, Keisya, Manda, Sila, Gentha, Ridho</span
+                    >
+                  </li>
+                </ul>
+                <p class="mt-3 mb-0 small text-muted">
+                  Jadwal piket dapat berubah — hubungi wali kelas untuk
+                  konfirmasi.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Info Tugas: full width di bawah jadwal + piket pada desktop, otomatis stack di mobile -->
+          <div class="col-12">
+            <div class="card shadow-sm mt-3">
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <h5 class="card-title mb-0">Info Tugas</h5>
+                  <div class="d-none d-lg-block">
+                    <button
+                      class="btn btn-sm btn-outline-primary"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#tugasFormCollapse"
+                      aria-expanded="false"
+                      aria-controls="tugasFormCollapse"
+                    >
+                      Tambah / Edit
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Alert success -->
+                <div
+                  id="tugasAlert"
+                  class="alert alert-success d-none"
+                  role="alert"
+                ></div>
+
+                <!-- Layout: list (left) + form (right on desktop, collapses on mobile) -->
+                <div class="row g-3">
+                  <div class="col-12 col-lg-8">
+                    <div id="tugasList" class="list-group tugas-list">
+                      <!-- items injected by JS -->
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-lg-4">
+                    <!-- small-screen toggle -->
+                    <div class="d-flex d-lg-none justify-content-end mb-2">
+                      <button
+                        class="btn btn-sm btn-outline-primary"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#tugasFormCollapse"
+                        aria-expanded="false"
+                        aria-controls="tugasFormCollapse"
+                      >
+                        Tambah / Edit
+                      </button>
+                    </div>
+
+                    <!-- single form instance: collapse on small, always visible on lg -->
+                    <div class="collapse d-lg-block" id="tugasFormCollapse">
+                      <form id="tugasForm" class="tugas-form">
+                        <div class="mb-2">
+                          <label
+                            for="tugasTitle"
+                            class="form-label small fw-semibold"
+                            >Mapel</label
+                          >
+                          <input
+                            type="text"
+                            id="tugasTitle"
+                            class="form-control form-control-sm"
+                            placeholder="Mata Pelajaran"
+                            required
+                          />
+                        </div>
+                        <div class="row g-2 mb-2">
+                          <div class="col-6">
+                            <label for="tugasDue" class="form-label small"
+                              >Tenggat</label
+                            >
+                            <input
+                              type="date"
+                              id="tugasDue"
+                              class="form-control form-control-sm"
+                            />
+                          </div>
+                          <div class="col-6">
+                            <label for="tugasSubject" class="form-label small"
+                              >Judul Tugas (opsional)</label
+                            >
+                            <input
+                              type="text"
+                              id="tugasSubject"
+                              class="form-control form-control-sm"
+                              placeholder="Judul Tugas"
+                            />
+                          </div>
+                        </div>
+                        <div class="mb-2">
+                          <label for="tugasDesc" class="form-label small"
+                            >Deskripsi</label
+                          >
+                          <textarea
+                            id="tugasDesc"
+                            class="form-control form-control-sm"
+                            rows="4"
+                            placeholder="Deskripsi singkat (opsional)"
+                          ></textarea>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                          <button
+                            type="submit"
+                            id="tugasSaveBtn"
+                            class="btn btn-primary btn-sm flex-fill"
+                          >
+                            Simpan
+                          </button>
+                          <button
+                            type="button"
+                            id="tugasCancelBtn"
+                            class="btn btn-outline-secondary btn-sm"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#tugasFormCollapse"
+                          >
+                            Batal
+                          </button>
+                        </div>
+
+                        <input type="hidden" id="tugasEditId" />
+                      </form>
+                    </div>
+                    <!-- pesan di local storage atau hanya muncul di device pribadi -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container-fluid contact-full px-4 px-lg-5">
+        <div class="section-header text-center mb-5">
+          <span class="section-subtitle">Hubungi Kami</span>
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-description">
+            silahkan kirim anonim pesan untuk kelas xi tkj 1
+          </p>
+        </div>
+
+        <div class="row g-4 align-items-start">
+          <!-- Contact Form -->
+          <div class="col-12 col-lg-7">
+            <div class="contact-form-wrapper">
+              <form class="contact-form" id="contactForm" autocomplete="off">
+                <div class="row g-4">
+                  <div class="col-md-6">
+                    <div class="form-floating custom-input">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        placeholder="Nama"
+                      />
+                      <label for="name"
+                        ><i class="bi bi-person"></i> Nama (opsional)</label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-floating custom-input">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="subject"
+                        placeholder="Subject"
+                      />
+                      <label for="subject"
+                        ><i class="bi bi-chat-left-dots"></i> Subject
+                        (opsional)</label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-floating custom-input">
+                      <textarea
+                        class="form-control"
+                        id="message"
+                        placeholder="Pesan"
+                        style="height: 150px"
+                        required
+                      ></textarea>
+                      <label for="message"
+                        ><i class="bi bi-pencil"></i> Pesan</label
+                      >
+                    </div>
+                  </div>
+
+                  <div class="col-12 d-flex gap-2">
+                    <button type="submit" class="btn-submit">
+                      <span>Kirim Pesan</span>
+                      <i class="bi bi-send"></i>
+                    </button>
+                    <button
+                      type="button"
+                      id="clearMessagesBtn"
+                      class="btn btn-outline-secondary d-none"
+                    >
+                      Hapus Semua
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Messages / komentar (tampil di bawah form on mobile, side on desktop) -->
+          <div class="col-12 col-lg-5">
+            <div class="card shadow-sm h-100">
+              <div class="card-body d-flex flex-column">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <h5 class="card-title mb-0">Komentar</h5>
+                  <small id="messagesCount" class="text-muted">0</small>
+                </div>
+
+                <!-- pesan di local storage atau hanya muncul di device pribadi -->
+                <div id="messagesList" class="messages-list list-group mb-3">
+                  <!-- pesan di-inject oleh JS -->
+                  <div class="text-muted small">Belum ada komentar.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- success alert (hidden, shown JS) -->
+      <div
+        id="contactSuccessAlert"
+        class="contact-alert d-none"
+        role="status"
+        aria-live="polite"
+      >
+        <div class="alert-content">
+          <strong>Pesan terkirim</strong>
+          <div class="small text-muted mt-1" id="contactSuccessText"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+      <div class="footer_atas">
+        <div class="title_footer">
+          <a href="#home">
+            <h1>KELAS<span> XI TKJ 1</span></h1>
+          </a>
+          <div class="sosmed_footer">
+            <a
+              href="https://www.instagram.com/cyberunity_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              aria-label="instagram"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a
+              href="https://www.tiktok.com/@elevenunity_one"
+              aria-label="tiktok"
+              ><i class="bx bxl-tiktok"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="nav_footer">
+          <div class="footer-column">
+            <h1>Menu</h1>
+            <a href="#home">Beranda</a>
+            <a href="#struktur">Struktur</a>
+            <a href="#anggota">Anggota</a>
+            <a href="#gallery">Galeri</a>
+            <a href="#info-kelas">Info Kelas</a>
+          </div>
+
+          <div class="footer-column">
+            <h1>Bantuan</h1>
+            <a href="#">Help</a>
+            <a href="#">Feedback</a>
+            <a href="#">Website</a>
+          </div>
+
+          <div class="footer-column contact_us">
+            <h1>Kontak</h1>
+            <p><i class="bx bxs-phone"></i>admin kelas</p>
+            <p><i class="bx bxl-gmail"></i>tekajesatoe11@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer_bawah">
+        <div class="Copyright">
+          <p style="font-weight: bold">
+            Copyright &copy; 2025 | XI<span> TKJ 1</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Member Profile Popup -->
+    <div class="member-profile-popup" id="memberProfilePopup">
+      <div class="member-profile-card">
+        <button class="close-btn" id="closeProfileBtn">&times;</button>
+        <div class="profile-content">
+          <div class="profile-header">
+            <img src="" alt="" class="profile-img" id="profileImg">
+            <h3 class="profile-name" id="profileName"></h3>
+            <p class="profile-role" id="profileRole"></p>
+          </div>
+          <div class="profile-body">
+            <div class="profile-links">
+              <a href="#" class="profile-link instagram" id="profileInstagram" target="_blank">
+                <i class="bi bi-instagram"></i> Instagram
+              </a>
+              <a href="#" class="profile-link spotify" id="profileSpotify" target="_blank">
+                <i class="bi bi-spotify"></i> Spotify
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
