@@ -311,11 +311,56 @@ highlights.forEach((highlight) => {
     const delBtn = e.target.closest(".btn-delete");
     if (delBtn) {
       const id = delBtn.getAttribute("data-id");
-      if (!confirm("Hapus tugas ini?")) return;
-      tasks = tasks.filter((t) => t.id !== id);
-      save();
-      render();
-      showAlert("Tugas dihapus.");
+      const task = tasks.find(t => t.id === id);
+      if (!task) return;
+
+      const deleteAlert = document.getElementById("deleteTaskAlert");
+      const confirmBtn = document.getElementById("confirmDeleteBtn");
+      const cancelBtn = document.getElementById("cancelDeleteBtn");
+      const closeBtn = document.getElementById("closeAlertBtn");
+
+      // Show delete confirmation
+      deleteAlert.classList.add("show");
+      document.body.style.overflow = "hidden";
+
+      // Handle confirm delete
+      const handleConfirm = () => {
+        tasks = tasks.filter(t => t.id !== id);
+        save();
+        render();
+        showAlert("Tugas dihapus.");
+        closeDeleteAlert();
+      };
+
+      // Handle cancel/close
+      const handleCancel = () => {
+        closeDeleteAlert();
+      };
+
+      // Close alert function
+      const closeDeleteAlert = () => {
+        deleteAlert.classList.remove("show");
+        document.body.style.overflow = "";
+        // Remove event listeners
+        confirmBtn.removeEventListener("click", handleConfirm);
+        cancelBtn.removeEventListener("click", handleCancel);
+        closeBtn.removeEventListener("click", handleCancel);
+        deleteAlert.removeEventListener("click", handleOutsideClick);
+      };
+
+      // Handle click outside
+      const handleOutsideClick = (e) => {
+        if (e.target === deleteAlert) {
+          closeDeleteAlert();
+        }
+      };
+
+      // Add event listeners
+      confirmBtn.addEventListener("click", handleConfirm);
+      cancelBtn.addEventListener("click", handleCancel);
+      closeBtn.addEventListener("click", handleCancel);
+      deleteAlert.addEventListener("click", handleOutsideClick);
+
       return;
     }
   });
@@ -461,18 +506,104 @@ highlights.forEach((highlight) => {
     if (!del) return;
     const id = del.getAttribute("data-id");
     if (!id) return;
-    if (!confirm("Hapus pesan ini?")) return;
-    messages = messages.filter((m) => m.id !== id);
-    save();
-    render();
+
+    const deleteAlert = document.getElementById("deleteCommentAlert");
+    const confirmBtn = document.getElementById("confirmDeleteCommentBtn");
+    const cancelBtn = document.getElementById("cancelDeleteCommentBtn");
+    const closeBtn = document.getElementById("closeCommentAlertBtn");
+
+    // Show delete confirmation
+    deleteAlert.classList.add("show");
+    document.body.style.overflow = "hidden";
+
+    // Handle confirm delete
+    const handleConfirm = () => {
+      messages = messages.filter((m) => m.id !== id);
+      save();
+      render();
+      showCenteredAlert("Komentar dihapus", "");
+      closeDeleteAlert();
+    };
+
+    // Handle cancel/close
+    const handleCancel = () => {
+      closeDeleteAlert();
+    };
+
+    // Close alert function
+    const closeDeleteAlert = () => {
+      deleteAlert.classList.remove("show");
+      document.body.style.overflow = "";
+      // Remove event listeners
+      confirmBtn.removeEventListener("click", handleConfirm);
+      cancelBtn.removeEventListener("click", handleCancel);
+      closeBtn.removeEventListener("click", handleCancel);
+      deleteAlert.removeEventListener("click", handleOutsideClick);
+    };
+
+    // Handle click outside
+    const handleOutsideClick = (e) => {
+      if (e.target === deleteAlert) {
+        closeDeleteAlert();
+      }
+    };
+
+    // Add event listeners
+    confirmBtn.addEventListener("click", handleConfirm);
+    cancelBtn.addEventListener("click", handleCancel);
+    closeBtn.addEventListener("click", handleCancel);
+    deleteAlert.addEventListener("click", handleOutsideClick);
   });
 
-  // clear all
+  // clear all - show confirmation overlay
   clearBtn?.addEventListener("click", () => {
-    if (!confirm("Hapus semua pesan?")) return;
-    messages = [];
-    save();
-    render();
+    const deleteAllAlert = document.getElementById("deleteAllAlert");
+    const confirmAllBtn = document.getElementById("confirmDeleteAllBtn");
+    const cancelAllBtn = document.getElementById("cancelDeleteAllBtn");
+    const closeAllBtn = document.getElementById("closeDeleteAllBtn");
+
+    if (!deleteAllAlert) {
+      // fallback to native confirm if overlay not present
+      if (!confirm("Hapus semua pesan?")) return;
+      messages = [];
+      save();
+      render();
+      return;
+    }
+
+    // show
+    deleteAllAlert.classList.add("show");
+    document.body.style.overflow = "hidden";
+
+    const handleConfirmAll = () => {
+      messages = [];
+      save();
+      render();
+      showCenteredAlert("Semua komentar dihapus", "");
+      closeAll();
+    };
+
+    const handleCancelAll = () => {
+      closeAll();
+    };
+
+    const closeAll = () => {
+      deleteAllAlert.classList.remove("show");
+      document.body.style.overflow = "";
+      confirmAllBtn.removeEventListener("click", handleConfirmAll);
+      cancelAllBtn.removeEventListener("click", handleCancelAll);
+      closeAllBtn.removeEventListener("click", handleCancelAll);
+      deleteAllAlert.removeEventListener("click", outsideClick);
+    };
+
+    const outsideClick = (e) => {
+      if (e.target === deleteAllAlert) closeAll();
+    };
+
+    confirmAllBtn.addEventListener("click", handleConfirmAll);
+    cancelAllBtn.addEventListener("click", handleCancelAll);
+    closeAllBtn.addEventListener("click", handleCancelAll);
+    deleteAllAlert.addEventListener("click", outsideClick);
   });
 
   // init
@@ -487,7 +618,7 @@ highlights.forEach((highlight) => {
   const slides = document.querySelectorAll('.hero-main-image .slide');
   let currentSlide = 0;
   let nextSlideIndex = 1;
-  const slideInterval = 5000; // Increased to 5 seconds for better viewing
+  const slideInterval = 5000;
   let transitioning = false;
 
   function updateSlides() {
@@ -510,7 +641,7 @@ highlights.forEach((highlight) => {
     // Reset transitioning flag after animation completes
     setTimeout(() => {
       transitioning = false;
-    }, 1200); // Match this with CSS transition duration
+    }, 1200);
   }
 
   // Start slideshow if there are slides
@@ -550,49 +681,47 @@ highlights.forEach((highlight) => {
 
   if (!popup || !closeBtn) return;
 
-  // Open profile popup when clicking an anggota card
-  document.querySelectorAll('.anggota-card').forEach(card => {
+  // Open profile popup when clicking an anggota card or a struktur-item
+  document.querySelectorAll('.anggota-card, .struktur-item').forEach(card => {
     card.style.cursor = 'pointer';
     card.addEventListener('click', (e) => {
       // Don't trigger if clicking social links
       if (e.target.closest('.social-links a')) {
         return;
       }
-      // Get data from the card
-      const img = card.querySelector('.anggota-img');
-      const name = card.querySelector('h5');
-      const role = card.querySelector('.role');
+
+      // Flexible selectors to support both anggota-card and struktur-item markup
+      const img = card.querySelector('.anggota-img, img');
+      const nameEl = card.querySelector('h5, h3, h4');
+      const roleEl = card.querySelector('.role, p, h6');
       const instagram = card.querySelector('.bi-instagram')?.closest('a');
       const spotify = card.querySelector('.bi-spotify')?.closest('a');
 
-      // Update popup content
-      if (img) profileImg.src = img.src;
-      if (name) profileName.textContent = name.textContent;
-      if (role) profileRole.textContent = role.textContent;
-      
-      // Update social links
-      profileInstagram.href = instagram?.href || '#';
-      profileInstagram.style.display = instagram ? 'flex' : 'none';
-      
-      profileSpotify.href = spotify?.href || '#';
-      profileSpotify.style.display = spotify ? 'flex' : 'none';
+      // Update popup content (use fallbacks when fields missing)
+      if (img && img.src) profileImg.src = img.src; else profileImg.src = '';
+      profileName.textContent = nameEl ? nameEl.textContent.trim() : '';
+      profileRole.textContent = roleEl ? roleEl.textContent.trim() : '';
 
-      // Tambahkan event handler agar link di popup benar-benar redirect
+      // Update social links (show/hide based on presence)
       if (profileInstagram) {
+        profileInstagram.href = instagram?.href || '#';
+        profileInstagram.style.display = instagram ? 'flex' : 'none';
         profileInstagram.setAttribute('target', '_blank');
-        profileInstagram.addEventListener('click', function(e) {
+        profileInstagram.onclick = function (ev) {
           if (profileInstagram.href && profileInstagram.href !== '#') {
             window.open(profileInstagram.href, '_blank');
           }
-        });
+        };
       }
       if (profileSpotify) {
+        profileSpotify.href = spotify?.href || '#';
+        profileSpotify.style.display = spotify ? 'flex' : 'none';
         profileSpotify.setAttribute('target', '_blank');
-        profileSpotify.addEventListener('click', function(e) {
+        profileSpotify.onclick = function (ev) {
           if (profileSpotify.href && profileSpotify.href !== '#') {
             window.open(profileSpotify.href, '_blank');
           }
-        });
+        };
       }
 
       // Show popup
@@ -601,11 +730,10 @@ highlights.forEach((highlight) => {
     });
   });
 
-  // Pastikan klik pada link di .social-links tidak bubble ke card
-  document.querySelectorAll('.anggota-card .social-links a').forEach(link => {
+  // Prevent clicks on social links inside both anggota-card and struktur-item from bubbling to the card
+  document.querySelectorAll('.anggota-card .social-links a, .struktur-item .social-links a').forEach(link => {
     link.addEventListener('click', function(e) {
       e.stopPropagation();
-      // Biarkan browser melakukan redirect normal
     });
   });
 
@@ -828,7 +956,7 @@ highlights.forEach((highlight) => {
     function onScroll() {
       latest = window.scrollY;
       requestAnimationFrame(() => {
-        const offset = Math.min(60, latest * 0.06); // subtle effect
+        const offset = Math.min(60, latest * 0.06);
         heroRight.style.transform = `translateY(${offset}px)`;
       });
     }

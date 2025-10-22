@@ -1206,7 +1206,7 @@ h6 {
 }
 
 .gallery_title span {
-  color: #3d5e3b;
+  color: var(--primary-color);
 }
 
 .gallery_title p {
@@ -1949,6 +1949,200 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* Delete Comment Alert Styles */
+.delete-comment-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(248, 250, 252, 0.75);
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+[data-theme="dark"] .delete-comment-alert {
+  background-color: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px) brightness(0.8) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) brightness(0.8) saturate(180%);
+}
+
+.delete-comment-alert .alert-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(248, 250, 252, 0.9)
+  );
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  transform: translateY(-20px);
+  animation: slideIn 0.3s ease-out forwards;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  box-shadow: 
+    0 4px 20px rgba(99, 102, 241, 0.15),
+    0 0 0 1px rgba(99, 102, 241, 0.1),
+    inset 0 0 20px rgba(99, 102, 241, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.delete-comment-alert .alert-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+}
+
+[data-theme="dark"] .delete-comment-alert .alert-card {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.95),
+    rgba(15, 23, 42, 0.9)
+  );
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(99, 102, 241, 0.1),
+    inset 0 0 30px rgba(99, 102, 241, 0.03);
+}
+
+.delete-comment-alert.show {
+  display: flex;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Delete All Comments Alert (uses same visual system) */
+.delete-all-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(248, 250, 252, 0.78);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+[data-theme="dark"] .delete-all-alert {
+  background-color: rgba(2, 6, 23, 0.78);
+  backdrop-filter: blur(14px) brightness(0.75) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) brightness(0.75) saturate(160%);
+}
+
+.delete-all-alert .alert-card {
+  width: 92%;
+  max-width: 520px; /* slightly larger to emphasize bulk action */
+  padding: 1.75rem;
+  border-radius: 16px;
+  animation: slideIn 0.32s ease-out forwards;
+}
+
+.delete-all-alert.show {
+  display: flex;
+  animation: fadeIn 0.28s ease-in-out;
+}
+
+/* Contact success centered alert (used by contact form JS) */
+#contactSuccessAlert.contact-alert {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10010;
+  width: 90%;
+  max-width: 420px;
+  pointer-events: none; /* block interactions except inside the card */
+  transition: opacity 220ms ease, transform 220ms ease;
+  opacity: 0;
+}
+
+/* When JS adds .show on the container we enable pointer events and fade it in */
+#contactSuccessAlert.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#contactSuccessAlert .alert-content {
+  pointer-events: auto;
+  width: 100%;
+  background: linear-gradient(180deg, var(--card-bg), rgba(255,255,255,0.96));
+  border-radius: 12px;
+  padding: 14px 18px;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  transition: transform 260ms cubic-bezier(0.2, 0.9, 0.26, 1), opacity 260ms ease;
+  transform-origin: center center;
+  transform: translateY(6px) scale(0.98);
+  opacity: 0;
+}
+
+/* show state for inner card (small pop) */
+#contactSuccessAlert.show .alert-content {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+#contactSuccessAlert .alert-content > strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+#contactSuccessAlert .alert-content .small {
+  color: var(--text-secondary);
+}
+
+/* Dark mode variant */
+[data-theme="dark"] #contactSuccessAlert.contact-alert .alert-content {
+  background: linear-gradient(180deg, rgba(30,41,59,0.98), rgba(15,23,42,0.98));
+  box-shadow: 0 16px 48px rgba(2, 6, 23, 0.6);
+  border: 1px solid rgba(99,102,241,0.06);
+}
+
+/* Ensure subtitle text in contact success is muted in dark theme (not pure white) */
+[data-theme="dark"] #contactSuccessAlert.contact-alert .alert-content .small {
+  /* use theme variable which is already a muted light color, but force specificity */
+  color: var(--text-secondary) !important;
+  opacity: 0.95;
+}
+
+/* Small screens: keep it centered but slightly narrower */
+@media (max-width: 576px) {
+  #contactSuccessAlert.contact-alert {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 360px;
+    width: 94%;
+    padding: 0 8px;
+  }
+  #contactSuccessAlert .alert-content {
+    padding: 12px;
+  }
+}
+
 /* mobile tweaks: reduce motion for users preferring reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
@@ -1958,5 +2152,250 @@ body {
   }
   body {
     transition: none !important;
+  }
+}
+
+/* Delete Task Alert */
+.delete-task-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(248, 250, 252, 0.75);
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+[data-theme="dark"] .delete-task-alert {
+  background-color: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px) brightness(0.8) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) brightness(0.8) saturate(180%);
+}
+
+.delete-task-alert.show {
+  display: flex;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.alert-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(248, 250, 252, 0.9)
+  );
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  transform: translateY(-20px);
+  animation: slideIn 0.3s ease-out forwards;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  box-shadow: 
+    0 4px 20px rgba(99, 102, 241, 0.15),
+    0 0 0 1px rgba(99, 102, 241, 0.1),
+    inset 0 0 20px rgba(99, 102, 241, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.alert-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+}
+
+[data-theme="dark"] .alert-card {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.95),
+    rgba(15, 23, 42, 0.9)
+  );
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(99, 102, 241, 0.1),
+    inset 0 0 30px rgba(99, 102, 241, 0.03);
+}
+
+.alert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.alert-header h4 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.close-alert {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.25rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.close-alert:hover {
+  opacity: 1;
+}
+
+.alert-body {
+  text-align: center;
+}
+
+.alert-body p {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.alert-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.alert-buttons button {
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  color: white;
+}
+
+.alert-buttons .btn-secondary {
+  background: linear-gradient(
+    to right,
+    #64748b,
+    #94a3b8
+  );
+  box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3);
+}
+
+.alert-buttons .btn-danger {
+  background: linear-gradient(
+    to right,
+    #dc2626,
+    #ef4444
+  );
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.alert-buttons button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: 0.6s;
+}
+
+.alert-buttons button:hover::before {
+  transform: translateX(100%);
+}
+
+.alert-buttons button:hover {
+  transform: translateY(-2px);
+}
+
+/* Light mode specific styles */
+[data-theme="light"] .alert-buttons .btn-secondary {
+  background: linear-gradient(
+    to right,
+    #475569,
+    #64748b
+  );
+}
+
+[data-theme="light"] .alert-buttons .btn-danger {
+  background: linear-gradient(
+    to right,
+    #dc2626,
+    #ef4444
+  );
+}
+
+/* Dark mode specific styles */
+[data-theme="dark"] .alert-buttons .btn-secondary {
+  background: linear-gradient(
+    to right,
+    rgba(71, 85, 105, 0.9),
+    rgba(100, 116, 139, 0.9)
+  );
+  box-shadow: 0 4px 15px rgba(71, 85, 105, 0.4);
+}
+
+[data-theme="dark"] .alert-buttons .btn-danger {
+  background: linear-gradient(
+    to right,
+    rgba(220, 38, 38, 0.9),
+    rgba(239, 68, 68, 0.9)
+  );
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+  .alert-card {
+    width: 95%;
+    padding: 1.25rem;
+  }
+  
+  .alert-header h4 {
+    font-size: 1.1rem;
+  }
+  
+  .alert-buttons button {
+    padding: 0.4rem 1.2rem;
   }
 }
